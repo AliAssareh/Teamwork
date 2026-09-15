@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import os
 
 np.random.seed(42)
 
@@ -19,5 +20,9 @@ def create_data(num_samples=1000):
 
 if __name__ == "__main__":
     df = create_data()
+    if os.path.exists('data'):
+        pass
+    else:
+        os.makedirs('data')
     df.to_csv('data/synthetic_data.csv', index=False)
     print("Synthetic data created and saved to 'data/synthetic_data.csv'.")
